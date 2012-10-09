@@ -6,6 +6,8 @@
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
+import java.io.*;
+
 public class LCS {
 	
 	static String findLCS(String s, String t) {
@@ -30,14 +32,25 @@ public class LCS {
 	}
 	
 	public static void main(String[] args) {
-		if (args.length != 2) {
-			System.out.println("Provide two strings");
+		if (args.length != 1) {
+			System.out.println("Please provide a file path.");
 			System.exit(0);
 		}
 		
-		String s = args[0];
-		String t = args[1];
+		String path = args[0];
 		
-		System.out.println(findLCS(s, t));
+		try {
+			BufferedReader buf = new BufferedReader(new FileReader(path));
+			String line = null;
+			int iteration = 0;
+			while ((line = buf.readLine()) != null) {
+				if (line.equals("")) continue;
+				String[] words = line.split(";");
+				String s = words[0]; String t = words[1];
+				System.out.println(findLCS(s, t));
+			}
+		} catch (IOException x) {
+			System.out.println("Invalid pathname.");
+		}
 	}
 }
