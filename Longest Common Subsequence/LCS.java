@@ -10,7 +10,7 @@ import java.io.*;
 
 public class LCS {
 	
-	static String findLCS(String s, String t) {
+	public String findLCS(String s, String t) {
 		String smax = "";
 		int maxlen = 0;
 		
@@ -38,6 +38,7 @@ public class LCS {
 		}
 		
 		String path = args[0];
+		LCS lcs = new LCS();
 		
 		try {
 			BufferedReader buf = new BufferedReader(new FileReader(path));
@@ -47,7 +48,7 @@ public class LCS {
 				if (line.equals("")) continue;
 				String[] words = line.split(";");
 				String s = words[0]; String t = words[1];
-				System.out.println(findLCS(s, t));
+				System.out.println(lcs.findLCS(s, t));
 			}
 		} catch (IOException x) {
 			System.out.println("Invalid pathname.");
