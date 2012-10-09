@@ -1,4 +1,4 @@
 CodeEval
 ========
 
-Solution attempts of CodeEval challenges (codeeval.com).
+Solution attempts at CodeEval challenges (codeeval.com).
